@@ -1,0 +1,20 @@
+<table class="table table-hover">
+  <thead>
+  <tr>
+      <td>User Name</td>
+      <td>User Email</td>
+      <td>Last Login</td>
+      <td colspan="2">Actions</td>
+  </tr>
+  </thead>
+
+  <tbody>
+      <tr *ngFor="let user of users">
+          <td>{{ user.username }}</td>
+          <td>{{ user.useremail }}</td>
+          <td>{{ user.lastlgin | date:'dd-mm-yyyy h:mma'  }}</td>
+          <td><a [routerLink]="['/edit', user._id]" class="btn btn-primary">Edit</a></td>
+          <td><button (click)="deleteUser(user._id)"  class="btn btn-danger">Delete</button></td>
+      </tr>
+  </tbody>
+</table>
